@@ -1,15 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Hypego</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="qexy.org">
+    <meta name="format-detection" content="telephone=no">
+    <title>HypeGO - Покупка доната</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- JQuery Easing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- ClipBoard JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+    <!-- PipUI -->
+    <link rel="stylesheet" href="templates\css\pipui.min.css">
+    <link rel="stylesheet" href="templates\css\pipui-responsive.min.css">
+    <script src="templates\js\pipui.min.js"></script>
+
+    <link rel="stylesheet" href="templates\css\pipui.theme.css?53">
+    <link rel="stylesheet" href="templates\css\pipui-responsive.theme.css?53">
+
+    <link rel="stylesheet" href="templates\css\main.css?53">
+    <link rel="stylesheet" href="templates\css\main-responsive.css?53">
+    <script src="templates\js\main.js"></script>
 </head>
+
 <body>
-<form action="sendform.php" method="POST">
-    <input type="text" name="name" placeholder="Введите имя"><br>
-    <input type="text" name="phone" placeholder="Введите телефон"><br>
-    <input type="submit">
-</form>
-    <a>aaa</a>
-</body>
+
+<div class="navbar navbar-text-light fixed top-0 left-0">
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="nav-left">
+                <a class="nav-brand text-white-h-i" href="index.htm">HypeGO</a>
+                <a href="#" class="nav-mobile"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <div class="nav-center"></div>
+
+            <div class="nav-right">
+                <ul class="navbar-menu">
+                    <li class="nav-li">
+                        <a class="nav-link active" href="index.htm">Главная</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-link" href="index-1.htm?page=donate">Описание доната</a>
+                    </li>
+                    <!--<li class="nav-li">
+                        <a class="nav-link" data-modal="recall" rel="nofollow" href="#">Повторить покупку</a>
+                    </li>-->
+                    <li class="nav-li">
+                        <a class="nav-link" target="_blank" href="https://vk.com/im?sel=-126092705">Кабинет</a>
+                    </li>
+					<li class="nav-li">
+                        <a class="nav-link" target="_blank" href="https://vk.com/hypego_maintenance">Поддержка</a>
+                    </li>
+					<li class="nav-li">
+                        <a class="nav-link" href="https://vk.com/topic-126092705_38717235" target="_blank">Правила</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clouds">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+</div>
+
+<div class="slide" id="cover">
+    <div class="container">
+        <div class="sitename">HypeGO</div>
+
+        <div class="sitedesc">Игровые сервера Minecraft: PE и Win10 Edition, сделанные с <span class="text-red-600">♥</span> к игрокам</div>
+
+		<div class="ips">
+			<div class="ips-wrapper scroll-styled">
+                <div class="server-id">
+                    <div class="ip">hypego.org:19132</div>
+                    <div class="copyblock"><button class="btn text-upper" data-modal="ip" data-clipboard-text="hypego.org:19132">Играть</button></div>
+                </div>
+				
+			</div>
+
+			
+		</div>
+
+        <div class="online">
+            <div class="block-left">
+                <div class="value" id="online">0</div>
+                <div class="type">Общий онлайн</div>
+            </div>
+
+            <div class="block-right">
+                <div class="value" id="slots">0</div>
+                <div class="type">Слоты</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="slide-down-target"><i class="fa fa-chevron-down"></i></a>
+</div>
+
+<div class="slide bg-white" id="donate">
+    <div class="container">
+        <div class="slide-name">Покупка доната</div>
+
+        <form method="POST" class="buyform donate-form window">
+            <input type="hidden" name="method" value="yookassa">
+            <input type="hidden" name="contact" value="">
+            <div class="input-block">
+                <label for="server">Выберите сервер</label>
+                <select name="server" id="server">
+                                            <option value="1">Survival</option>
+                                            <option value="2">Mini-Games</option>
+                    
+                </select>
+            </div>
+
+            <div class="input-block">
+                <label for="group">Выберите товар</label>
+                <select name="group" id="group">
+                    <option value="-1" disabled="" selected="">Выберите товар</option>
+
+                </select>
+
+                <div id="hiddengroup" class="d-none">
+                                                                        <optgroup label="Привилегии" data-server="1">
+                                                                    <option value="1">Флай -50% - 1 руб.</option>
+                                                                    <option value="2">Вип -50% - 2 руб.</option>
+                                                                    <option value="3">Премиум -50% - 3 руб.</option>
+                                                                    <option value="4">Креатив -50% - 4 руб.</option>
+                                                                    <option value="5">Модератор -50% - 9 руб.</option>
+                                                                    <option value="6">Админ -50% - 19 руб.</option>
+                                                                    <option value="7">Хелпер -50% - 29 руб.</option>
+                                                                    <option value="8">Поддержка -50% - 49 руб.</option>
+                                                                    <option value="9">Анти-Грифер -50% - 69 руб.</option>
+                                                                    <option value="10">Оператор -50% - 99 руб.</option>
+                                                                    <option value="16">Создатель -50% - 123 руб.</option>
+                                                                    <option value="14">Владелец -50% - 249 руб.</option>
+                                                                    <option value="15" data-field="true">Консоль -50% - 499 руб.</option>
+                                                                    <option value="81" data-field="true">Гл.Консоль -50% - 549 руб.</option>
+                                                                    <option value="42" data-field="true">&#128293; Разработчик -50% - 2999 руб.</option>
+                                
+                            </optgroup>
+                                                    <optgroup label="Прочее" data-server="1">
+                                                                    <option value="58">Размут - 29 руб.</option>
+                                                                    <option value="57">Разбан по нику - 49 руб.</option>
+                                
+                            </optgroup>
+                                                    <optgroup label="Новогодние привилегии" data-server="1">
+                                                                    <option value="84">&#9924; Снеговик - 69 руб.</option>
+                                                                    <option value="83" data-field="true">&#127877;&#127996; Дед Мороз - 549 руб.</option>
+                                
+                            </optgroup>
+                                                    <optgroup label="АДМИНИСТРАЦИЯ" data-server="1">
+                                                                    <option value="73" data-field="true">&#128640; Администратор -50% (ост. 1 шт.) - 4999 руб.</option>
+                                                                    <option value="61" data-field="true">&#128200; Гл.Администратор -50% (ост. 6 шт.) - 9999 руб.</option>
+                                
+                            </optgroup>
+                        
+                                                                        <optgroup label="Монеты" data-server="2">
+                                                                    <option value="78">1500 коинов - 19 руб.</option>
+                                                                    <option value="79">10000 коинов - 99 руб.</option>
+                                                                    <option value="80">50000 коинов - 299 руб.</option>
+                                
+                            </optgroup>
+                                                    <optgroup label="Привилегии" data-server="2">
+                                                                    <option value="76">Вип -50% - 99 руб.</option>
+                                                                    <option value="77">Премиум -50% - 299 руб.</option>
+                                
+                            </optgroup>
+                        
+                    
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label for="nick">Введите ваш ник на сервере</label>
+                <input type="text" placeholder="Ник" name="nick" id="nick">
+            </div>
+
+            <div class="input-block form-group-vk">
+                <label for="vk">Введите Ваш ID пользователя VK</label>
+                <input type="text" placeholder="Числовой ID. Пример: 12110351" name="vk" id="vk">
+            </div>
+
+            <div id="accept-block">
+                <div class="block-left">
+                    <div class="input-block">
+                        <label><input type="checkbox" disabled="" value="1" checked=""> Я принимаю <a href="index-2.htm?page=terms">условия оплаты</a></label>
+                    </div>
+                </div>
+
+                <div class="block-right">
+                    <img src="templates\img\megafon.png" id="megafon" alt="Megafon">
+                    <img src="templates\img\gallery\psl.png" id="paym" alt="Payments">
+                </div>
+            </div>
+
+            <button id="buy" type="button" name="buy" class="btn text-upper d-block w-100">Купить</button>
+        </form>
+    </div>
+
+    <a href="#" class="slide-down-target"><i class="fa fa-chevron-down"></i></a>
+</div>
+
+<div class="slide" id="last">
+    <div class="container">
+        <div class="slide-name">Последние покупки</div>
+
+        <div class="donate-list" id="donaters"></div>
+    </div>
+
+    <a href="#" class="slide-down-target"><i class="fa fa-chevron-down"></i></a>
+</div>
+
+<div class="slide bg-white" id="gallery">
+    <div class="container">
+        <div class="slide-name">Личный Кабинет</div>
+
+        <form action="re" class="sign">
+            <label class="lk-text">Введите ваш ник на сервере</label>
+            <input type="text" placeholder="Ник" name="nick" id="nick_lk">
+        </form>
+        <form action="re" class="pas">
+            <label class="lk-text">Введите ваш пароль на сервере</label>
+            <input type="text" placeholder="Пароль" name="nick" id="pass_lk">
+        </form>
+
+        <button action="s" id="entry" type="button" name="entry" class="btn text-upper d-block w-100">Войти</button>
+
+    </div>
+
+    <a href="#" class="slide-down-target"><i class="fa fa-chevron-down"></i></a>
+</div>
+
+<div class="slide" id="download">
+    <div class="container">
+        <div class="slide-name">Начать играть</div>
+
+        <div class="sitedesc">
+            <div>Для начала игры на нашем сервере скачайте лаунчер</div>
+            <div>Для входа на сервер необходимо ввести пароль дважды в чат</div>
+        </div>
+
+        <div class="download-title">Скачать Minecraft PE</div>
+
+        <div class="download-button">
+            <div class="block-left">
+                <!--<a href="/uploads/minecraft_1.1.5.apk" class="btn block w-50 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Pe 1.1.5 <span class="text-orange">HOT</span></a>-->
+				<!--<a href="/uploads/minecraft-pe.apk" class="btn block w-50 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Pe 1.1.5 <span class="text-orange">HOT</span></a>-->
+                <a href="uploads\minecraft-pe.apk" class="btn block w-50 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Pe <span class="text-light-green">Android 4.2+</span></a>
+                <!--<a href="/uploads/minecraft_1.17.10.apk" class="btn block w-50 mt-20 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Be 1.17.10</a>-->
+                <!--<a href="/uploads/minecraft_1.17.10.apk" class="btn block w-50 mt-20 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Be 1.17.10 <span class="text-light-green">NEW</span></a>-->
+            </div>
+            <div class="block-right">
+           <a href="uploads\minecraft-pe-2.3.6.apk" class="btn block w-50 mx-auto bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать Minecraft Pe <span class="text-orange">Android 2.3.6+</span></a>
+           </div>
+           <!--<div class="block-right">
+               <a href="/uploads/Minecraft_Windows_10_Edition_1_1.rar" class="btn block w-100 bg-white-i text-gray-700-i h-48px-i lh-48-i rad-24-i fs-16-i">Скачать для Windows 10</a>
+           </div>-->
+        </div>
+    </div>
+
+    <a href="#" class="slide-top-target"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<div class="modal" data-id="ip">
+    <div class="wrapper">
+        <div class="modal-content">
+            <div class="modal-header">Подключение к серверу</div>
+
+            <div class="modal-body">
+                <div>Если открытие Minecraft не произошло, скопируйте адрес сервера в буфер обмена, нажав на соответствующую кнопку ниже</div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn copyto" data-clipboard-text="hypego.org:19132">Скопировать адрес</button>
+                <button class="btn btn-transparent" data-modal-close="">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-id="method">
+    <div class="wrapper">
+        <div class="modal-content">
+            <div class="modal-header">Выберите способ оплаты</div>
+
+            <div class="modal-body">
+                <div id="methods">
+                    <ul>
+                        <li>
+                            <button class="btn" type="button" data-type="yookassa" data-pic="yookassa" title="ЮКасса">
+                                <span class="subtext">Банковские карты РФ, Qiwi, Юмани</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button class="btn" type="button" data-type="centapp" data-pic="centapp" title="CentApp">
+                                <span class="subtext">Международные банковские карты</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button class="btn" type="button" data-type="anypay" data-pic="anypay" title="AnyPay">
+                                <span class="subtext">Криптовалюта</span>
+                            </button>
+                        </li>
+
+                        <!--<li>
+                            <button class="btn" type="button" data-type="qiwi" data-pic="qiwi" title="Qiwi">
+                                <span class="subtext">Банковские карты РФ и Qiwi</span>
+                            </button>
+                        </li>-->
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-transparent" data-modal-close="">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-id="contact">
+    <div class="wrapper">
+        <div class="modal-content">
+            <div class="modal-header">Контакты для оптравки чека</div>
+
+            <div class="modal-body">
+                <form method="POST" class="contact-form">
+                    <div class="input-block">
+                        <label for="contact-form">E-Mail или номер телефона</label>
+                        <input type="text" placeholder="Примеры: 79876543210 | contact@mail.com" id="contact-form" required="">
+                        <div class="input-helper">Данное поле является обязательным</div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn send-contact">Продолжить</button>
+                <button class="btn btn-transparent" data-modal-close="">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <!-- HypeGO 2018-2022 Все права защищены!-->
+         ИП Феоктистов Дмитрий Владимирович ИНН <span class="text-color-white">622909664690</span> ОГРНИП <span class="text-color-white">321623400038266</span> <a href="cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="2b4844455f4a485f6b4d4e44405f42585f445d05495e5842454e5858">[email&#160;protected]</a>
+    </div>
+    <!--+79956543103-->
+	 	<!--<a href="http://info.paymaster.ru/"><img src="/templates/img/paymaster.svg" width=176 height=62 border=0 alt="PayMaster | Прием платежей"></a>-->
+</div>
+
+<div class="modal" data-id="recall" id="recall">
+    <div class="wrapper w-80-i">
+        <form id="recall-form" method="post" class="modal-content">
+            <div class="modal-header">Повторить выдачу</div>
+
+            <div class="modal-body">
+                <div class="input-block">
+                    <label for="search">Поиск по нику</label>
+                    <input type="text" name="search" id="search" placeholder="Введите никнейм">
+                </div>
+
+                <div class="search-orders">
+                    <div class="table table-responsive">
+                        <div class="table-header">
+                            <div class="table-row">
+                                <div class="table-cell-resp">Ник</div>
+                                <div class="table-cell">Ник</div>
+                                <div class="table-cell-resp">Покупка</div>
+                                <div class="table-cell">Покупка</div>
+                                <div class="table-cell-resp">Сервер</div>
+                                <div class="table-cell">Сервер</div>
+                                <div class="table-cell-resp">Дата</div>
+                                <div class="table-cell">Дата</div>
+                                <div class="table-cell-resp">Действие</div>
+                                <div class="table-cell">Действие</div>
+                            </div>
+                        </div>
+
+                        <div class="table-body lh-24"></div>
+                    </div>
+                    <div class="order-none p-40 text-center">По заданным параметрам ничего не найдено</div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn">Искать</button>
+                <button class="btn btn-transparent" data-modal-close="">Закрыть</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script data-cfasync="false" src="cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+
 </html>
