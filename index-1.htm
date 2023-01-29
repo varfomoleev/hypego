@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="qexy.org">
+    <meta name="format-detection" content="telephone=no">
+    <title>HypeGO - Покупка доната</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- JQuery Easing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- ClipBoard JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+    <!-- PipUI -->
+    <link rel="stylesheet" href="templates\css\pipui.min.css">
+    <link rel="stylesheet" href="templates\css\pipui-responsive.min.css">
+    <script src="templates\js\pipui.min.js"></script>
+
+    <link rel="stylesheet" href="templates\css\pipui.theme.css?53">
+    <link rel="stylesheet" href="templates\css\pipui-responsive.theme.css?53">
+
+    <link rel="stylesheet" href="templates\css\main.css?53">
+    <link rel="stylesheet" href="templates\css\main-responsive.css?53">
+    <script src="templates\js\main.js?53"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-text-light fixed top-0 left-0">
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="nav-left">
+                <a class="nav-brand text-white-h-i" href="index.htm">HypeGO</a>
+                <a href="#" class="nav-mobile"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <div class="nav-center"></div>
+
+            <div class="nav-right">
+                <ul class="navbar-menu">
+                    <li class="nav-li">
+                        <a class="nav-link" href="index.htm">Главная</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-link active" href="index-1.htm?page=donate">Описание доната</a>
+                    </li>
+                    <!--<li class="nav-li">
+                        <a class="nav-link" data-modal="recall" rel="nofollow" href="#">Повторить покупку</a>
+                    </li>-->
+                    <li class="nav-li">
+                        <a class="nav-link" target="_blank" href="https://vk.com/im?sel=-126092705">Кабинет</a>
+                    </li>
+					<li class="nav-li">
+                        <a class="nav-link" target="_blank" href="https://vk.com/hypego_maintenance">Поддержка</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-link" href="https://vk.com/topic-126092705_38717235" target="_blank">Правила</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-100 pb-20 lh-20" style="word-break: break-word;">
+    <div class="succes">
+        <a class="title-text">Проверка данных</a>
+        <a class="second-text">Подождите 5-10 минут  для проверки данных</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="container">
+        <!-- HypeGO 2018-2022 Все права защищены!-->
+         ИП Феоктистов Дмитрий Владимирович ИНН <span class="text-color-white">622909664690</span> ОГРНИП <span class="text-color-white">321623400038266</span> <a href="cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="385b57564c595b4c785e5d57534c514b4c574e165a4d4b51565d4b4b">[email&#160;protected]</a>
+    </div>
+    <!--+79956543103-->
+	 	<!--<a href="http://info.paymaster.ru/"><img src="/templates/img/paymaster.svg" width=176 height=62 border=0 alt="PayMaster | Прием платежей"></a>-->
+</div>
+
+<div class="modal" data-id="recall" id="recall">
+    <div class="wrapper w-80-i">
+        <form id="recall-form" method="post" class="modal-content">
+            <div class="modal-header">Повторить выдачу</div>
+
+            <div class="modal-body">
+                <div class="input-block">
+                    <label for="search">Поиск по нику</label>
+                    <input type="text" name="search" id="search" placeholder="Введите никнейм">
+                </div>
+
+                <div class="search-orders">
+                    <div class="table table-responsive">
+                        <div class="table-header">
+                            <div class="table-row">
+                                <div class="table-cell-resp">Ник</div>
+                                <div class="table-cell">Ник</div>
+                                <div class="table-cell-resp">Покупка</div>
+                                <div class="table-cell">Покупка</div>
+                                <div class="table-cell-resp">Сервер</div>
+                                <div class="table-cell">Сервер</div>
+                                <div class="table-cell-resp">Дата</div>
+                                <div class="table-cell">Дата</div>
+                                <div class="table-cell-resp">Действие</div>
+                                <div class="table-cell">Действие</div>
+                            </div>
+                        </div>
+
+                        <div class="table-body lh-24"></div>
+                    </div>
+                    <div class="order-none p-40 text-center">По заданным параметрам ничего не найдено</div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn">Искать</button>
+                <button class="btn btn-transparent" data-modal-close="">Закрыть</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script data-cfasync="false" src="cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+
+</html>
