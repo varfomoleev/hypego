@@ -1,0 +1,80 @@
+@media (max-width:991px) {
+	.slide#gallery .image-list {
+		grid-template-columns: 100%;
+	}
+
+	.slide#gallery .image-list > .image-id {
+		height: 400px;
+	}
+
+	.modal#recall > .wrapper {
+		width: 100% !important;
+	}
+}
+
+@media (max-width:767px) {
+	.slide#cover .online,
+	.slide#cover .ips,
+	.slide#donate .donate-form,
+	.slide#download .download-button,
+	.slide#last .donate-list {
+		width: 100%;
+	}
+
+	.slide#gallery .image-list > .image-id {
+		height: 320px;
+	}
+}
+
+@media (max-width:519px) {
+	.slide#cover .online {
+		grid-template-columns: 100%;
+	}
+
+	.slide#last .donate-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.clouds > .cloud {
+		display: none;
+	}
+
+	.slide#cover .ips {
+		height: 132px;
+	}
+
+	.slide#cover .ips > .ips-wrapper {
+		max-height: 132px;
+	}
+
+	.slide#cover .ips > .ips-wrapper > .server-id:first-child,
+	.slide#cover .ips > .ips-wrapper > .server-id {
+		grid-template-columns: 100%;
+	}
+
+	.slide#cover .sitename {
+		font-size: 4rem;
+	}
+
+	.slide .slide-name {
+		font-size: 32px;
+	}
+
+	.slide#download .download-button {
+		width: 100%;
+	}
+
+	.slide#download .download-button {
+		grid-template-columns: 100%;
+	}
+}
+
+@media (max-width:479px) {
+	.slide#gallery .image-list > .image-id {
+		height: 240px;
+	}
+
+	.slide#cover .sitename {
+		font-size: 3rem;
+	}
+}

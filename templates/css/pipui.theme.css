@@ -1,0 +1,110 @@
+body {
+	background: rgb(102, 126, 234);
+	background: linear-gradient(90deg, #f142ff 0%, #0089ff 100%)
+}
+
+
+* {
+	font-family: 'Ubuntu', sans-serif;
+	word-break: break-word;
+}
+
+body > .container {
+	min-height: calc(100vh - 80px);
+}
+
+body > .navbar {
+	background-color: rgba(0,0,0,0.4);
+	text-transform: uppercase;
+}
+
+body > .navbar.navbar-text-light .navbar-wrapper .nav-link:after {
+	opacity: 0;
+	height: 1px;
+}
+
+body > .navbar.navbar-text-light .navbar-wrapper .nav-link:hover:after,
+body > .navbar.navbar-text-light .navbar-wrapper .nav-link.active:after {
+	opacity: 1;
+}
+
+body > .navbar.navbar-text-light .navbar-wrapper .nav-link {
+	font-weight: normal;
+}
+
+#paymaster {
+	position: absolute;
+	bottom: 20px;
+	margin: auto;
+	right: 20px;
+	width: 160px;
+	height: 38px;
+	background-image: url("../img/paymaster.svg");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: block;
+}
+
+.btn {
+	background-color: #667EEA;
+	font-size: 13px;
+}
+
+.scroll-styled::-webkit-scrollbar {
+	border-radius: 4px;
+	left: 5px;
+}
+
+.scroll-styled::-webkit-scrollbar-track {
+	border-radius: 4px;
+}
+
+.scroll-styled::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: #667EEA;
+}
+
+.window {
+	border-radius: 4px;
+	box-shadow:rgba(0,0,0,.12) 0 0 20px,rgba(0,0,0,.12) 0 0 30px;
+}
+
+body > .footer {
+	min-height: 80px;
+	text-align: center;
+	display: grid;
+	align-items: center;
+	background-color: #212121;
+	color: #fff;
+	position: relative;
+	padding: 20px 0;
+	line-height: 24px;
+}
+
+.accordion > .accordion-id > .accordion-trigger {
+	background-color: #667EEA;
+}
+
+.accordion > .accordion-id > .accordion-trigger:after {
+	top: 10px;
+}
+
+.text-color-white {
+	color: #fff;
+}
+
+.succes {
+	text-align: center;
+}
+.title-text {
+	color: #ffffff;
+	font-size: 39px;
+	font-weight: 700;
+}
+
+.second-text {
+	color: #ffffff;
+	font-size: 20px;
+	padding: 50px 0;
+}

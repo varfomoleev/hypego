@@ -1,0 +1,21 @@
+@media (max-width: 1199px) {
+	#paymaster {
+		position: static;
+		margin-top: 8px;
+	}
+}
+
+@media (max-width: 991px) {
+	body > .navbar.open {
+		background-color: rgba(0,0,0,0.7);
+	}
+
+	body > .navbar .navbar-wrapper .nav-mobile {
+		align-items: center;
+		display: grid;
+	}
+
+	body > .navbar.navbar-text-light .navbar-wrapper .nav-link:after {
+		display: none;
+	}
+}
